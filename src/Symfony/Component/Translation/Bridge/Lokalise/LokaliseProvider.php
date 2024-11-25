@@ -265,6 +265,10 @@ final class LokaliseProvider implements ProviderInterface
             }
         }
 
+        if (0 === \count($keysToUpdate)) {
+            return;
+        }
+
         $response = $this->client->request('PUT', 'keys', [
             'json' => ['keys' => $keysToUpdate],
         ]);
